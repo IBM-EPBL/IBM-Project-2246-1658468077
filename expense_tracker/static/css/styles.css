@@ -1,0 +1,24 @@
+*{
+    font-family: 'Lexend', sans-serif;
+}
+
+.full-height{
+    height: 100vh;
+    display: flex;
+}
+
+.f-700{
+    font-weight: 700;
+}
+
+.bg-gray{
+    background-color: #D8D8D8;
+}
+
+p{
+    margin-bottom: 0;
+}
+
+a{
+    text-decoration: none;
+}
