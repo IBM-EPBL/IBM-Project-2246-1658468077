@@ -9,3 +9,7 @@ def hello_world():
 @app.route("/sign-in")
 def toSignUpPage():
     return render_template('signin.html')
+
+@app.route("/")
+def toHomePage():
+    return render_template('home.html')    
