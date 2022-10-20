@@ -39,6 +39,10 @@
     font-size: small;
 }
 
+.large-text{
+    font-size: 4rem;
+}
+
 p{
     margin-bottom: 0;
 }
