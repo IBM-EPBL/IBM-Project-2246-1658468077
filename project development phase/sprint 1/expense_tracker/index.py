@@ -3,32 +3,37 @@ import ibm_db;
 
 app = Flask(__name__)
 
-dsn_hostname = "3883e7e4-18f5-4afe-be8c-fa31c41761d2.bs2io90l08kqb1od8lcg.databases.appdomain.cloud"
-dsn_uid = "ghc72736"
-dsn_pwd = "uz905NueevL1upTM"
+# dsn_hostname = "3883e7e4-18f5-4afe-be8c-fa31c41761d2.bs2io90l08kqb1od8lcg.databases.appdomain.cloud"
+# dsn_uid = "ghc72736"
+# dsn_pwd = "uz905NueevL1upTM"
 
-dsn_driver = "{IBM DB2 ODBC DRIVER}"
-dsn_database = "BLUDB"
-dsn_port = "50000"
-dsn_protocol = "TCPIP"
+# dsn_driver = "{IBM DB2 ODBC DRIVER}"
+# dsn_database = "BLUDB"
+# dsn_port = "50000"
+# dsn_protocol = "TCPIP"
 
-dsn = (
-    "DRIVER={0};"
-    "DATABASE={1};"
-    "HOSTNAME={2};"
-    "PORT={3};"
-    "PROTOCOL={4};"
-    "UID={5};"
-    "PWD={6};"
-).format(dsn_driver, dsn_database, dsn_hostname, dsn_port, dsn_protocol, dsn_uid, dsn_pwd)
 
-print(dsn)
+# dsn = (
+#     "DRIVER={0};"
+#     "DATABASE={1};"
+#     "HOSTNAME={2};"
+#     "PORT={3};"
+#     "PROTOCOL={4};"
+#     "UID={5};"
+#     "PWD={6};"
+# ).format(dsn_driver, dsn_database, dsn_hostname, dsn_port, dsn_protocol, dsn_uid, dsn_pwd)
+
+# print(dsn)
+
+print("Before connection")
 
 try:
-    conn = ibm_db.connect(dsn, "", "")
-    print("Connected to database: ", dsn_database, " as user: ", dsn_uid, " on host: ", dsn_hostname)
+    conn = ibm_db.connect("DATABASE=BLUDB;HOSTNAME=3883e7e4-18f5-4afe-be8c-fa31c41761d2.bs2io90l08kqb1od8lcg.databases.appdomain.cloud;PORT=50000;PROTOCOL=TCPIP;UID=ghc72736;PWD=uz905NueevL1upTM;","","")
+    print("Connected to database")
 except:
     print("Unable to connect: ", ibm_db.conn_errormsg())
+
+print("After connection")    
 
 @app.route("/sign-up")
 def hello_world():
