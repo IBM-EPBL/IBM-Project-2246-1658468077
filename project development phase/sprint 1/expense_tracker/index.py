@@ -1,5 +1,8 @@
+import imp
 from flask import Flask, render_template
 import ibm_db;
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 app = Flask(__name__)
 
@@ -25,15 +28,15 @@ app = Flask(__name__)
 
 # print(dsn)
 
-print("Before connection")
+# print("Before connection")
 
-try:
-    conn = ibm_db.connect("DATABASE=BLUDB;HOSTNAME=3883e7e4-18f5-4afe-be8c-fa31c41761d2.bs2io90l08kqb1od8lcg.databases.appdomain.cloud;PORT=50000;PROTOCOL=TCPIP;UID=ghc72736;PWD=uz905NueevL1upTM;","","")
-    print("Connected to database")
-except:
-    print("Unable to connect: ", ibm_db.conn_errormsg())
+# try:
+#     conn = ibm_db.connect("DATABASE=BLUDB;HOSTNAME=3883e7e4-18f5-4afe-be8c-fa31c41761d2.bs2io90l08kqb1od8lcg.databases.appdomain.cloud;PORT=50000;PROTOCOL=TCPIP;UID=ghc72736;PWD=uz905NueevL1upTM;","","")
+#     print("Connected to database")
+# except:
+#     print("Unable to connect: ", ibm_db.conn_errormsg())
 
-print("After connection")    
+# print("After connection")    
 
 @app.route("/sign-up")
 def hello_world():

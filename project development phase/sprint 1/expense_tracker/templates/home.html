@@ -21,12 +21,17 @@
     <title>Home - Expend</title>
 </head>
 
-<body>
-    <div class="full-height bg-gray row home">
-        <div class="col-lg-4 p-1 d-flex flex-column h-100">
-            <div class="d-flex flex-column bg-white rounded shadow-sm h-50">
+<body class="home bg-gray">
+    <div class="full-height row mb-5">
+        <div class="d-flex align-items-center">
+            <h1 class="f-700">Hello Ramesh,</h1>
+            <i class="fa-solid fa-circle-user fa-3x ms-auto cursor-pointer text-secondary"></i>
+        </div>
+        <div class="col-lg-4 p-2 d-flex flex-column h-100">
+            <div class="d-flex flex-column bg-white rounded shadow-lg h-50">
                 <div class="p-2 d-flex align-items-center">
                     <h3 class="mb-0 f-700">Expenses</h3>
+                    <input class="align-self-end" type="date">
                     <i class="fa-solid fa-plus fa-2x cursor-pointer ms-auto"></i>
                 </div>
                 <hr class="m-0">
@@ -124,7 +129,7 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex flex-column bg-white rounded expenses shadow-sm mt-3 h-50">
+            <div class="d-flex flex-column bg-white rounded expenses shadow-lg mt-3 h-50">
                 <div class="p-2 d-flex align-items-center">
                     <h3 class="mb-0 f-700">Categories</h3>
                     <i class="fa-solid fa-plus fa-2x cursor-pointer ms-auto"></i>
@@ -152,11 +157,51 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-8 p-1">
-            <div class="bg-white rounded shadow-sm">
+        <div class="col-lg-8 p-2">
+            <div class="bg-white rounded shadow-lg mb-3">
+                <h3 class="p-2 mb-0 f-700">Today</h3>
+                <hr class="m-0">
+                <div class="row p-2">
+                    <div class="col-6">
+                        <canvas id="myChart1" style="width:100%; height: 250px"></canvas>
+                    </div>
+                    <div class="col-6">
+                        <h6 class="f-700 text-secondary">Total Expenses</h6>
+                        <h1 class="text-center f-700 large-text overflow-auto">500.0</h1>
+                    </div>
+                </div>  
+            </div>
+            <div class="row mb-3">
+                <div class="col-6 ps-0 pe-2">
+                    <div class="bg-white rounded shadow-lg">
+                        <h3 class="p-2 mb-0 f-700">Debts</h3>
+                        <hr class="m-0">
+                        <div class="row p-2">
+                            <div class="col-6">
+                                <h6 class="f-700 text-secondary">Payable</h6>
+                                <h1 class="text-center f-700 large-text overflow-auto">0.0</h1>
+                            </div>
+                            <div class="col-6">
+                                <h6 class="f-700 text-secondary">Receivable</h6>
+                                <h1 class="text-center f-700 overflow-auto">25000</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 ps-1 pe-0">
+                    <div class="bg-white rounded shadow-lg h-100">
+                        <h3 class="p-2 mb-0 f-700">Wallet</h3>
+                        <hr class="m-0">
+                        <div class="d-flex justify-content-center align-items-center h-100">
+                            <h1 class="f-700 large-text overflow-auto">25000</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded shadow-lg">
                 <h3 class="p-2 mb-0 f-700">Insights</h3>
                 <hr class="m-0">       
-                <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+                <canvas class="p-2" id="myChart" style="width:100%;"></canvas>
             </div>
         </div>
     </div>
@@ -182,7 +227,34 @@
             }
           }
         });
-        </script>
+
+        var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+        var yValues = [55, 49, 44, 24, 15];
+        var barColors = [
+        "#b91d47",
+        "#00aba9",
+        "#2b5797",
+        "#e8c3b9",
+        "#1e7145"
+        ];
+
+        new Chart("myChart1", {
+        type: "doughnut",
+        data: {
+            labels: xValues,
+            datasets: [{
+            backgroundColor: barColors,
+            data: yValues
+            }]
+        },
+        options: {
+            title: {
+            display: true,
+            text: "World Wide Wine Production 2018"
+            }
+        }
+        });
+    </script>
 </body>
 
 </html>
