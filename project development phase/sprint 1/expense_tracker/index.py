@@ -16,6 +16,12 @@ def toSignUpPage():
 
 @app.route("/")
 def toHomePage():
-    return render_template('home.html')  
+    return render_template('home.html')
+
+@app.route("/profile/<name>")
+def toProfilePage():
+    return render_template('profile.html', )    
+
+
 
 
