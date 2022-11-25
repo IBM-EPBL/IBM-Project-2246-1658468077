@@ -74,7 +74,7 @@ def addNewExpense(data, date):
                 subject='Daily expense limit exceeded',
                 html_content='<h2>Hello ' + name + '</h2><h3>This is to notify you that your daily expense limit of ' + str(limit) + ' has been exceeded</h3>')
             try:
-                sg = SendGridAPIClient('key')
+                sg = SendGridAPIClient('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')
                 response = sg.send(message)
                 print(response.status_code)
                 print(response.body)
